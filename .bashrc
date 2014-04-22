@@ -2,7 +2,13 @@
 # piping fortune into cowsay
 fortune | cowsay | lolcat
 
+# installing packages
 alias apt-get='sudo apt-get'
+alias pacman='sudo -E pacman'
+alias yaourt='sudo -E yaourt'
+
+# extracting tar.gz files
+alias targz='tar zxf'
 
 # controlling backlight brightness
 alias light='xbacklight -inc'
