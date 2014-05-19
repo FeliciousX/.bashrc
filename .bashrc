@@ -2,6 +2,9 @@
 # piping fortune into cowsay
 fortune | cowsay | lolcat
 
+# Default editor
+export EDITOR=vim
+
 # installing packages
 alias apt-get='sudo apt-get'
 alias pacman='sudo -E pacman'
