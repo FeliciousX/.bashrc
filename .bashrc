@@ -107,3 +107,7 @@ function prompt {
 	export PS1="\n$GREENBOLD\u@\h\[\033[00m\]:$BLUEBOLD\w $GREENBOLD \\$ $WHITEBOLD "
 }
 prompt
+
+
+# Add key to agent when needed
+ssh-add -l >/dev/null || alias ssh='ssh-add -l >/dev/null || ssh-add && unalias ssh; ssh'
