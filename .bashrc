@@ -43,7 +43,7 @@ function setproxy() {
 
     # Setting proxies for github
     rm ~/.gitconfig
-    cp ~/Public/.gitconfigswin ~/.gitconfig
+    cp ~/Public/gitconfig/.gitconfigswin ~/.gitconfig
 
     # Setting proxies for Java
     export _JAVA_OPTIONS='-Dhttp.proxyHost=wwwproxy.swinburne.edu.my -Dhttp.proxyPort=8000 -Dhttps.proxyHost=wwwproxy.swinburne.edu.my -Dhttps.proxyPort=8000'
@@ -66,7 +66,7 @@ function unsetproxy() {
 
     # Unsetting proxies for github
     rm ~/.gitconfig
-    cp ~/Public/.gitconfigdefault ~/.gitconfig
+    cp ~/Public/gitconfig/.gitconfig ~/.gitconfig
 
     gsettings set org.gnome.system.proxy mode 'none'
     echo "Proxy cleared"
