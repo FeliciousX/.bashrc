@@ -15,6 +15,8 @@ alias yaourt='sudo -E yaourt'
 
 # extracting tar.gz files
 alias targz='tar zxf'
+#extracting .tar files
+alias tartar='tar xvf'
 
 # controlling backlight brightness
 alias light='xbacklight -inc'
@@ -108,6 +110,3 @@ function prompt {
 }
 prompt
 
-
-# Add key to agent when needed
-ssh-add -l >/dev/null || alias ssh='ssh-add -l >/dev/null || ssh-add && unalias ssh; ssh'
