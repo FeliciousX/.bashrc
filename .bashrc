@@ -33,6 +33,11 @@ alias youcanspeaknow='amixer set Master unmute'
 alias bankai='sudo tee /proc/acpi/bbswitch <<<ON'
 alias shikai='sudo tee /proc/acpi/bbswitch <<<OFF'
 
+# shortcuts for git
+alias gst='git status'
+alias gch='git checkout'
+alias gcl='git clone'
+
 # User specified functions
 
 # Setting proxy for swinwifi
