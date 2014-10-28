@@ -1,12 +1,18 @@
 # Setting proxies for most applications
-export {http,https}_proxy='58.26.207.170:8000'
-export {HTTP,HTTPS}_PROXY='58.26.207.170:8000'
+export {http,https}_proxy='wwwproxy.swinburne.edu.my:8000'
+export {HTTP,HTTPS}_PROXY='wwwproxy.swinburne.edu.my:8000'
 export no_proxy='localhost,127.0.0.0/8'
 export NO_PROXY='localhost,127.0.0.0/8'
 
 # Setting proxies for github
-rm ~/.gitconfig
-cp ~/Public/gitconfig/.gitconfigswin ~/.gitconfig
+if [[ -f ~/Public/gitconfig/.gitconfigswin ]]; then
+    cp ~/Public/gitconfig/.gitconfigswin ~/.gitconfig
+fi
+
+# Setting proxies for ssh
+if [[ -f ~/Public/sshconfig/configswin ]]; then
+    cp ~/Public/sshconfig/configswin ~/.ssh/config
+fi 
 
 # Setting proxies for Java
 export _JAVA_OPTIONS='-Dhttp.proxyHost=wwwproxy.swinburne.edu.my -Dhttp.proxyPort=8000 -Dhttps.proxyHost=wwwproxy.swinburne.edu.my -Dhttps.proxyPort=8000'

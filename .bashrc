@@ -42,18 +42,24 @@ alias gcl='git clone'
 
 # Setting proxy for swinwifi
 function setproxy() {
-   if [[ -f ~/.bash/setproxy ]]; then
-       . ~/.bash/setproxy
-   fi
+if [[ -f ~/.bash/setproxy ]]; then
+    . ~/.bash/setproxy
+fi
 }
 
 # Remove proxies
 function unsetproxy() {
-    if [[ -f unsetproxy ]]; then
-        . ~/.bash/unsetproxy
-    fi
+if [[ -f unsetproxy ]]; then
+    . ~/.bash/unsetproxy
+fi
 }
 
+# if terminal supports 256-color, use it!
+if [ -e /usr/share/terminfo/x/xterm-256color ]; then
+    export TERM='xterm-256color'
+else
+    export TERM='xterm-color'
+fi
 
 # auto colour terminal
 #PS1='[\u@\h \W]\$ ' # Default
@@ -70,14 +76,14 @@ function unsetproxy() {
 # 0 - Normal
 # 1 - Bold
 function prompt {
-	local BLACK="\[\033[0;30m\]"
-	local RED="\[\033[0;31m\]"
-	local GREEN="\[\033[0;32m\]"
-	local YELLOW="\[\033[0;33m\]"
-	local BLUE="\[\033[0;34m\]"
-	local PURPLE="\[\033[0;35m\]"
-	local CYAN="\[\033[0;36m\]"
-	local WHITE="\[\033[0;37m\]"
-	export PS1="\n$GREEN\u@\h\[\033[00m\]:$BLUE\w $GREEN\\$ $WHITE"
+local BLACK="\[\033[0;30m\]"
+local RED="\[\033[0;31m\]"
+local GREEN="\[\033[0;32m\]"
+local YELLOW="\[\033[0;33m\]"
+local BLUE="\[\033[0;34m\]"
+local PURPLE="\[\033[0;35m\]"
+local CYAN="\[\033[0;36m\]"
+local WHITE="\[\033[0;37m\]"
+export PS1="\n$GREEN\u@\h\[\033[00m\]:$BLUE\w $GREEN\\$ $WHITE"
 }
 prompt

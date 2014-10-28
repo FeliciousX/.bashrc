@@ -5,8 +5,14 @@ unset NO_PROXY
 unset _JAVA_OPTIONS
 
 # Unsetting proxies for github
-rm ~/.gitconfig
-cp ~/Public/gitconfig/.gitconfig ~/.gitconfig
+if [ -f ~/Public/gitconfig/.gitconfig ]; then
+    cp ~/Public/gitconfig/.gitconfig ~/.gitconfig
+fi
+
+# Unsetting proxy for ssh
+if [ -f ~/Public/sshconfig/config ]; then
+    cp ~/Public/sshconfig/config ~/.ssh/config
+fi
 
 gsettings set org.gnome.system.proxy mode 'none'
 echo "Proxy cleared"
