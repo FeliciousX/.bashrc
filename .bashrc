@@ -49,7 +49,7 @@ fi
 
 # Remove proxies
 function unsetproxy() {
-if [[ -f unsetproxy ]]; then
+if [[ -f ~/.bash/unsetproxy ]]; then
     . ~/.bash/unsetproxy
 fi
 }
