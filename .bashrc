@@ -44,6 +44,8 @@ alias gcl='git clone'
 function setproxy() {
 if [[ -f ~/.bash/setproxy ]]; then
     . ~/.bash/setproxy
+else
+    echo "setproxy script not found"
 fi
 }
 
@@ -51,6 +53,19 @@ fi
 function unsetproxy() {
 if [[ -f ~/.bash/unsetproxy ]]; then
     . ~/.bash/unsetproxy
+else
+    echo "unsetproxy script not found"
+fi
+}
+
+# Set git to use http
+function setgithttp() {
+if [[ -f ~/Public/gitconfig/.gitconfighttp ]]; then
+    cp ~/Public/gitconfig/.gitconfighttp ~/.gitconfig
+    echo "Git now uses http instead of ssh"
+
+else
+    echo ".gitconfig for http not found"
 fi
 }
 

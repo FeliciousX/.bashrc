@@ -6,12 +6,16 @@ export NO_PROXY='localhost,127.0.0.0/8'
 
 # Setting proxies for github
 if [[ -f ~/Public/gitconfig/.gitconfigswin ]]; then
-    cp ~/Public/gitconfig/.gitconfigswin ~/.gitconfig
+    cp ~/Public/gitconfig/.gitconfigswin ~/.gitconfig -v
+else
+    echo "Couldn't find .gitconfigswin"
 fi
 
 # Setting proxies for ssh
 if [[ -f ~/Public/sshconfig/configswin ]]; then
-    cp ~/Public/sshconfig/configswin ~/.ssh/config
+    cp ~/Public/sshconfig/configswin ~/.ssh/config -v
+else
+    echo "Couldn't find ssh config for swinburne"
 fi 
 
 # Setting proxies for Java

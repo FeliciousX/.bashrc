@@ -6,13 +6,17 @@ unset _JAVA_OPTIONS
 
 # Unsetting proxies for github
 if [ -f ~/Public/gitconfig/.gitconfig ]; then
-    cp ~/Public/gitconfig/.gitconfig ~/.gitconfig
+    cp ~/Public/gitconfig/.gitconfig ~/.gitconfig -v
+else
+    echo "Couldn't find default .gitconfig"
 fi
 
 # Unsetting proxy for ssh
 if [ -f ~/Public/sshconfig/config ]; then
-    cp ~/Public/sshconfig/config ~/.ssh/config
+    cp ~/Public/sshconfig/config ~/.ssh/config -v
+else
+    echo "Couldn't find default ssh config file"
 fi
 
 gsettings set org.gnome.system.proxy mode 'none'
-echo "Proxy cleared"
+echo "Proxy removed!"
