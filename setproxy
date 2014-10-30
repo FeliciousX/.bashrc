@@ -5,8 +5,8 @@ export no_proxy='localhost,127.0.0.0/8'
 export NO_PROXY='localhost,127.0.0.0/8'
 
 # Setting proxies for github
-if [[ -f ~/Public/gitconfig/.gitconfigswin ]]; then
-    cp ~/Public/gitconfig/.gitconfigswin ~/.gitconfig -v
+if [[ -f ~/.bash/gitconfig/.gitconfigswin ]]; then
+    cp ~/.bash/gitconfig/.gitconfigswin ~/.gitconfig -v
 else
     echo "Couldn't find .gitconfigswin"
 fi
