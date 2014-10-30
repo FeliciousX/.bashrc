@@ -12,11 +12,14 @@ else
 fi
 
 # Setting proxies for ssh
-if [[ -f ~/Public/sshconfig/configswin ]]; then
-    cp ~/Public/sshconfig/configswin ~/.ssh/config -v
-else
-    echo "Couldn't find ssh config for swinburne"
-fi 
+if [[ -f ~/.ssh/config ]]; then
+    if grep -q ProxyCommand ~/.ssh/config ; then
+        cp ~/.ssh/config ~/.ssh/config.bak -v
+        sed 's/\#ProxyCommand/ProxyCommand/' ~/.ssh/config.bak > ~/.ssh/config
+    else
+        echo "ProxyCommand /usr/bin/corkscrew wwwproxy.swinburne.edu.my 8000 %h %p" >> ~/.ssh/config
+    fi
+fi
 
 # Setting proxies for Java
 export _JAVA_OPTIONS='-Dhttp.proxyHost=wwwproxy.swinburne.edu.my -Dhttp.proxyPort=8000 -Dhttps.proxyHost=wwwproxy.swinburne.edu.my -Dhttps.proxyPort=8000'

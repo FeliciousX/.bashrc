@@ -5,17 +5,22 @@ unset NO_PROXY
 unset _JAVA_OPTIONS
 
 # Unsetting proxies for github
-if [ -f ~/.bash/gitconfig/.gitconfig ]; then
+if [[ -f ~/.bash/gitconfig/.gitconfig ]]; then
     cp ~/.bash/gitconfig/.gitconfig ~/.gitconfig -v
 else
     echo "Couldn't find default .gitconfig"
 fi
 
 # Unsetting proxy for ssh
-if [ -f ~/Public/sshconfig/config ]; then
-    cp ~/Public/sshconfig/config ~/.ssh/config -v
+if [[ -f ~/.ssh/config ]]; then
+    if grep -q ProxyCommand ~/.ssh/config ; then
+        cp ~/.ssh/config ~/.ssh/config.bak -v
+        sed 's/ProxyCommand/\#ProxyCommand/' ~/.ssh/config.bak > ~/.ssh/config
+    else
+        echo "No proxy found in ssh config file"
+    fi
 else
-    echo "Couldn't find default ssh config file"
+    echo "Couldn't find ssh config file"
 fi
 
 gsettings set org.gnome.system.proxy mode 'none'
