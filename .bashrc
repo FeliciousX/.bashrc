@@ -61,9 +61,8 @@ fi
 # Set git to use http
 function setgithttp() {
 if [[ -f ~/Public/gitconfig/.gitconfighttp ]]; then
-    cp ~/Public/gitconfig/.gitconfighttp ~/.gitconfig
+    cp ~/Public/gitconfig/.gitconfighttp ~/.gitconfig -v
     echo "Git now uses http instead of ssh"
-
 else
     echo ".gitconfig for http not found"
 fi
