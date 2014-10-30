@@ -1,0 +1,3 @@
+[submodule "gitconfig"]
+	path = gitconfig
+	url = git@gist.github.com:/16f89fa0fb7da8cc8b25.git
