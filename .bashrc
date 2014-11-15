@@ -1,6 +1,6 @@
 # User specified aliases
 # piping fortune into cowsay
-fortune | cowsay | lolcat
+fortune -a | cowsay | lolcat
 
 # Default editor
 export EDITOR=vim
@@ -40,6 +40,14 @@ alias gcl='git clone'
 
 # User specified functions
 
+# Start apache and mysql
+function webdev() {
+    sudo systemctl start httpd
+    sudo systemctl start mysqld
+    systemctl status httpd
+    systemctl status mysqld
+}
+
 # Setting proxy for swinwifi
 function setproxy() {
 if [[ -f ~/.bash/setproxy ]]; then
@@ -60,8 +68,8 @@ fi
 
 # Set git to use http
 function setgithttp() {
-if [[ -f ~/Public/gitconfig/.gitconfighttp ]]; then
-    cp ~/Public/gitconfig/.gitconfighttp ~/.gitconfig -v
+if [[ -f ~/.bash/gitconfig/.gitconfighttp ]]; then
+    cp ~/.bash/gitconfig/.gitconfighttp ~/.gitconfig -v
     echo "Git now uses http instead of ssh"
 else
     echo ".gitconfig for http not found"
