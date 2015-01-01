@@ -38,6 +38,9 @@ alias gst='git status'
 alias gch='git checkout'
 alias gcl='git clone'
 
+# msf shortcut
+alias msfconsole='msfconsole --quiet -x "db_connect ${USER}@msf"'
+
 # User specified functions
 
 # Start apache and mysql
@@ -106,6 +109,6 @@ local BLUE="\[\033[0;34m\]"
 local PURPLE="\[\033[0;35m\]"
 local CYAN="\[\033[0;36m\]"
 local WHITE="\[\033[0;37m\]"
-export PS1="\n$GREEN\u@\h\[\033[00m\]:$BLUE\w $GREEN\\$ $WHITE"
+export PS1="$GREEN\u@\h\[\033[00m\]:$BLUE\w $GREEN\\$ $WHITE"
 }
 prompt
