@@ -5,13 +5,18 @@ fortune -a | cowsay | lolcat
 # Default editor
 export EDITOR=vim
 
+# make changing directory easier
+alias .='pwd'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+
 # ls now has colours
 alias ls='ls --color=auto'
 
 # installing packages
 alias apt-get='sudo apt-get'
 alias pacman='sudo -E pacman'
-alias yaourt='sudo -E yaourt'
 
 # extracting tar.gz files
 alias targz='tar zxf'
